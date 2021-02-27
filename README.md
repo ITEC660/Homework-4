@@ -19,46 +19,46 @@ Run the app that you had created last week (**homework 3)** on the Heroku platfo
     2. Close the heroku webpage (dashboard) and go back your terminal
     3. Accept the terms and you will be directed to dashboard ([https://dashboard.heroku.com/apps](https://dashboard.heroku.com/apps))
     4. It should state in the CLI that you have logged into your account.
-        5. You can use **Ctrl-C** to end the process. 
+        You can use **Ctrl-C** to end the process. 
 6. Clone a local version of the sample application that you can then deploy to Heroku
 
-```bash
-git clone <https://github.com/heroku/node-js-getting-started.git>
-cd node-js-getting-started
+    ```bash
+    git clone <https://github.com/heroku/node-js-getting-started.git>
+    cd node-js-getting-started
 
-```
+    ```
 
-1. Create a remote repository
+    1. Create a remote repository
 
-```bash
-heroku create
+    ```bash
+    heroku create
 
-```
+    ```
 
-1. Deploy your code
+    1. Deploy your code
 
-```bash
-git push heroku main 
+    ```bash
+    git push heroku main 
 
-```
+    ```
 
-1. Ensure that at least one instance of the app is running
+    1. Ensure that at least one instance of the app is running
 
-```bash
-heroku ps:scale web=1
+    ```bash
+    heroku ps:scale web=1
 
-```
+    ```
 
-1. Open your first web app
+    1. Open your first web app
 
-```bash
-heroku open
+    ```bash
+    heroku open
 
-```
+    ```
 
-1. Congratulations! You just created your sample cloud app.
- 
-Now you’re ready to create your first Heroku app. In this step, you will prepare a sample application that’s ready to be deployed to Heroku.
+    1. Congratulations! You just created your sample cloud app.
+
+    Now you’re ready to create your first Heroku app. In this step, you will prepare a sample application that’s ready to be deployed to Heroku.
 
 6. Update your “**webapp.js**” code
     1. Update the line of **app.listen(8002)**; with the below:
