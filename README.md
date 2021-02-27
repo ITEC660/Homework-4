@@ -14,44 +14,142 @@ Run the app that you had created last week (**homework 3)** on the Heroku platfo
 3. Click on the button “**I’m ready to start**”
 4. Download and install Heroku CLI
     1. Note that it requires Git.
-5. Open your terminal (i.e visual studio code) and type “**heroku login**” command
+5. Open your terminal (i.e git bash, visual studio code, etc) and type “**heroku login**” command
     1. This command will open “**Log in to the Heroku CLI**” and click on “**Log in**”
-    2. Click the heroku webpage (dashboard) and go back your terminal
-    3. If It ask you to login to your heroku account
-    4. Sign in on the browser if it asks
-    5. Accept terms below the page and you will be directed to dashboard (https://dashboard.heroku.com/apps)
-    6. Now you’re ready to create your first Heroku app. In this step, you will prepare a sample application that’s ready to be deployed to Heroku.
-    7. Click on “**Create New App**” on Heroku
-6. Check node.js, npm versions, and if git is installed, as instructed in the document
-7. We will not use the Heroku sample application, skip that and continue below
-8. Update your “**webapp.js**” code with running your node.js terminal such as “**Visual Studio Code**”
-    1. Change the line of **app.listen(8002)**; =====> **app.listen(process.env.PORT)**;
+    2. Close the heroku webpage (dashboard) and go back your terminal
+    3. Accept the terms and you will be directed to dashboard ([https://dashboard.heroku.com/apps](https://dashboard.heroku.com/apps))
+    4. It should say logged into your account.
+    5. It should then go back into command line. If not use **Ctrl-C**.
+    6. Clone a local version of the sample application that you can then deploy to Heroku
 
-//so Heroku can assign any available port
+    ```bash
+    git clone <https://github.com/heroku/node-js-getting-started.git>
+    cd node-js-getting-started
 
-1. Add a new file to your “**webapp**” repository,
+    ```
+
+    1. Create a remote repository
+
+    ```bash
+    heroku create
+
+    ```
+
+    1. Deploy your code
+
+    ```bash
+    git push heroku main 
+
+    ```
+
+    1. Ensure that at least one instance of the app is running
+
+    ```bash
+    heroku ps:scale web=1
+
+    ```
+
+    1. Open your first web app
+
+    ```bash
+    heroku open
+
+    ```
+
+    1. Congratulations! You just created your sample cloud app.
+    2. Now you’re ready to create your first Heroku app. In this step, you will prepare a sample application that’s ready to be deployed to Heroku.
+6. Update your “**webapp.js**” code
+    1. Update the line of **app.listen(8002)**; with the below:
+
+    ```bash
+    //If runs on Heroku assign a dynamic port number
+    let port = process.env.PORT;
+
+    //If runs locally assign 8002 static port
+    if (port == null || port == "") {
+      port = 8002;
+    }
+    app.listen(port);
+    ```
+
+    1. So, Heroku can assign any available port during runtime
+7. Add a new file to your “**webapp**” repository,
     1. Create the file named “**Procfile**” with no extensions in the filename (don't use .txt, .js etc.) and you will see the **heroku** icon in your code console.
-    2. Content of the file should have the following one lineweb: node webapp.js
-2. Start git commands
-    1. git init
-        1. Initializes the repository
-    2. git add .
-        1. Adds all files
-    3. git commit -m “first commit”
-        1. Adds a comment for the first version
-        2. If you received “unable to auto-detect email address”
-            1. Search google and apply the solution
-    4. git log
-        1. Shows changes
-3. Run the following command
-    1. **heroku create** or Go Heroku web page and create an app
-    2. Note your link. It will be something like:
-        1. [https://thawing-inlet-61413.herokuapp.com/](https://thawing-inlet-61413.herokuapp.com/)
-        2. run **heroku git:remote -a <heroku-app-name>**
-4. Run **git push heroku master**
-    1. Takes a couple of minutes to be updated.
-    2. Viola! You have your app running on the web!!! Go heroku and open your app.
-5. If there are any problems check “heroku logs”, that might help.
+    2. Content of the file should have the following one line
+
+    ```bash
+    web: node webapp.js
+
+    ```
+
+    3. Specify the version of node. (Hint: You can check it with "node --version" command)
+
+    ```bash
+    "engines": {
+        "node": "12.x"
+      }
+    ```
+
+    It should be added into package.json
+
+    ```bash
+    {
+      "name": "node-example",
+      "version": "1.0.0",
+      "description": "This example is so cool.",
+      "main": "web.js",
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "keywords": [
+        "example",
+        "heroku"
+      ],
+      "author": "jane-doe",
+      "license": "MIT",
+      "dependencies": {
+        "express": "^4.9.8"
+      },
+      "engines": {
+        "node": "12.x"
+      }
+    }
+    ```
+
+8. Run the following npm command. Change index.js to webapp.js when asked. Update other optional information as you wish.
+
+```bash
+npm init
+```
+
+1. Run the following git commands in your webapp folder:
+
+    ```bash
+    git init
+    git add .
+    git commit -m “first commit”
+
+    ```
+
+    ```bash
+    heroku login 
+    # may not be needed if you are already logged in
+
+    heroku create 
+    # will create a new app for you 
+
+    git push heroku master 
+    # It will deploy the code to Heroku servers.
+    # If everything works OK. It should finish with:
+    # "Verifying deploy... done."
+
+    heroku open 
+    # will open your web app
+
+    ```
+
+2. Viola! You have your app running on the web!!! 
+3. If there are any problems check “heroku logs”, that might help.
     1. For example: If you see “npm ERR! missing script: start”
         1. Try: [https://stackoverflow.com/questions/34631300/why-do-i-obtain-this-error-when-deploying-app-to-heroku](https://stackoverflow.com/questions/34631300/why-do-i-obtain-this-error-when-deploying-app-to-heroku)
-    2. Write how you have solved problems in your code.
+    2. Write down how you have solved the problems during the deployment of your code.
