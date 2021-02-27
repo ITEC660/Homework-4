@@ -35,47 +35,46 @@ Run the app that you had created last week (**homework 3)** on the Heroku platfo
 
     ```
 
-    1. Deploy your code
+    2. Deploy your code
 
     ```bash
     git push heroku main 
 
     ```
 
-    1. Ensure that at least one instance of the app is running
+    3. Ensure that at least one instance of the app is running
 
     ```bash
     heroku ps:scale web=1
 
     ```
 
-    1. Open your first web app
+    4. Open your first web app
 
     ```bash
     heroku open
 
     ```
 
-    1. Congratulations! You just created your sample cloud app.
+    5. Congratulations! You just created your sample cloud app.
 
     Now you’re ready to create your first Heroku app. In this step, you will prepare a sample application that’s ready to be deployed to Heroku.
 
-6. Update your “**webapp.js**” code
-    1. Update the line of **app.listen(8002)**; with the below:
+7. Update your “**webapp.js**” code
+    1. Update the line of **app.listen(8002)**; with the code below, so, Heroku can assign any available port during runtime:
 
     ```bash
-    //If runs on Heroku assign a dynamic port number
+    //If the code runs on Heroku, assign a dynamic port number
     let port = process.env.PORT;
 
-    //If runs locally assign 8002 static port
+    //If it runs locally assign 8002 static port
     if (port == null || port == "") {
       port = 8002;
     }
     app.listen(port);
     ```
 
-    1. So, Heroku can assign any available port during runtime
-7. Add a new file to your “**webapp**” repository,
+8. Add a new file to your “**webapp**” repository,
     1. Create the file named “**Procfile**” with no extensions in the filename (don't use .txt, .js etc.) and you will see the **heroku** icon in your code console.
     2. Content of the file should have the following one line
 
@@ -118,13 +117,13 @@ Run the app that you had created last week (**homework 3)** on the Heroku platfo
     }
     ```
 
-8. Run the following npm command. Change index.js to webapp.js when asked. Update other optional information as you wish.
+9. Run the following npm command. Change index.js to webapp.js when asked. Update other optional information as you wish.
 
 ```bash
 npm init
 ```
 
-1. Run the following git commands in your webapp folder:
+10. Run the following git commands in your webapp folder:
 
     ```bash
     git init
@@ -150,8 +149,8 @@ npm init
 
     ```
 
-2. You have your app running on the web!!! 
-3. If there are any problems check “heroku logs”, that might help.
+11. You have your app running on the web!!! 
+12. If there are any problems check “heroku logs”, that might help.
     1. For example: If you see “npm ERR! missing script: start”
         1. Try: [https://stackoverflow.com/questions/34631300/why-do-i-obtain-this-error-when-deploying-app-to-heroku](https://stackoverflow.com/questions/34631300/why-do-i-obtain-this-error-when-deploying-app-to-heroku)
     2. Write down how you have solved the problems during the deployment of your code.
