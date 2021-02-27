@@ -153,4 +153,3 @@ npm init
 12. If there are any problems check “heroku logs”, that might help.
     1. For example: If you see “npm ERR! missing script: start”
         1. Try: [https://stackoverflow.com/questions/34631300/why-do-i-obtain-this-error-when-deploying-app-to-heroku](https://stackoverflow.com/questions/34631300/why-do-i-obtain-this-error-when-deploying-app-to-heroku)
-    2. Write down how you have solved the problems during the deployment of your code.
