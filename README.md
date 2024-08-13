@@ -4,7 +4,7 @@ Run the app that you had created last week (**homework 3)** on the cloud.
 
 1. Research PAAS (Platform As A Service) providers
     
-2. Pick one you are comfortable with (make sure it runs Node.JS). You may use codespaces by GitHub.
+2. Pick one you are comfortable with (make sure it runs Node.JS).
 
 6. Clone your HW3 
 
@@ -25,6 +25,6 @@ Run the app that you had created last week (**homework 3)** on the cloud.
 8. Update other configuration files as needed
 9. Push your code to your platform.
 10. Run your app!
-11. Add your app link to Canvas HW4 document. Make sure it runs at least a week so I can check them during grading.
+11. Add your app link to the HW4 lesson in EdStem. Make sure it runs at least a week so I can check them during grading.
 12. If there are any problems check your platform for help documents. Add your solution to the weekly reflection.
     
